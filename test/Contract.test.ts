@@ -12,7 +12,13 @@ describe("Accountability contract", function () {
 
     const [owner, addr1, addr2, addr3] = await ethers.getSigners();
 
-    const accountabilityNFTs = await AccountabilityNFTsFactory.deploy();
+    const accountabilityNFTs = await AccountabilityNFTsFactory.deploy(
+      "AccountabilityNFTs",
+      "ANFT",
+      owner.address,
+      0,
+      owner.address,
+    );
 
     await accountabilityNFTs.deployed();
 
@@ -29,7 +35,11 @@ describe("Accountability contract", function () {
   // should be able to deposit funds using the deposit function
   it("Should be able to deposit funds", async function () {
     const { accountability, accountabilityNFTs, owner, addr1, addr2, addr3 } = await loadFixture(deployContractAccountability);
-    await accountability.deposit({ value: 1000 });
+
+    const oneWeek = 604800;
+
+    await accountability.deposit(oneWeek, { value: ethers.utils.parseEther("1.0") });
+
   });
   // should reject a withdrawal if the user doesn't have an NFT from the contract
 
