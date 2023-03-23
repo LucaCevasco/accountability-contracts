@@ -6,9 +6,18 @@
     "release": "npx thirdweb@latest release"
   },
   "devDependencies": {
-    "hardhat": "^2.10.1"
+    "@nomicfoundation/hardhat-toolbox": "^2.0.2",
+    "@types/chai": "^4.3.4",
+    "@types/jest": "^29.5.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^18.15.5",
+    "hardhat": "^2.10.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.2"
   },
   "dependencies": {
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.8",
+    "@openzeppelin/contracts": "^4.8.2",
     "@thirdweb-dev/contracts": "^3"
   }
 }
